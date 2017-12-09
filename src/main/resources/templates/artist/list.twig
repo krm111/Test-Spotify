@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Artistas</title>
+  </head>
+  <body>
+
+ {% if (message) %}
+ <div style="color: green; border: 1px solid green; margin-bottom:10px;">{{message}}</div>
+ {% endif %}
+
+	<table border="1">
+	  <tr>
+	    <th>ID</th>
+	    <th>Name</th>
+	  </tr>
+
+{% for artist in artists %}
+	  <tr>
+	    <td>{{artist.id}}</td>
+	    <td>{{artist.name}}</td>
+	  </tr>
+{% endfor %}
+	</table>
+	<br />
+	<a href="/artist/add">Nuevo Artista</a>
+ <a href="/admin">Terminar</a>
+  </body>
+</html>

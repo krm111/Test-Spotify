@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Admin(Login)</title>
+</head>
+<body>
+{% if (message) %}
+    <div style="color: green; border: 1px solid green; margin-bottom:10px;">{{message}}</div>
+{% endif %}
+<form action="signIn" method="POST">
+    <table border="1">
+        <tr>
+            <th>Admin:</th>
+            <td><input name="name" value="{{admin.name}}"/></td>
+        </tr>
+        <tr>
+            <th>Password:</th>
+            <td><input name="password" value="{{admin.password}}"/></td>
+        </tr>
+    </table>
+    <br>
+    <input type="submit" value="OK" />
+    <input type="button" value="Cancel" onclick="history.back();" />
+    <br />
+</form>
+</body>
+</html>

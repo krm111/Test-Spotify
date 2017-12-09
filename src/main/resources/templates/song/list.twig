@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Canciones</title>
+  </head>
+  <body>
+
+ {% if (message) %}
+ <div style="color: green; border: 1px solid green; margin-bottom:10px;">{{message}}</div>
+ {% endif %}
+
+	<table border="1">
+	  <tr>
+	    <th>Direction</th>
+	    <th>Name</th>
+		  <th>Album</th>
+		  <th>Other Album</th>
+		  <th>Other Album</th>
+		  <th>Other Album</th>
+		  <th>Other Album</th>
+		  <th>Other Album</th>
+		  <th>Other Album</th>
+	  </tr>
+
+{% for song in songs %}
+	  <tr>
+	    <td>{{song.dir}}</td>
+	    <td>{{song.sname}}</td>
+		  <td>{{song.album}}</td>
+		  <td>{{song.albumA}}</td>
+		  <td>{{song.albumB}}</td>
+		  <td>{{song.albumC}}</td>
+		  <td>{{song.albumD}}</td>
+		  <td>{{song.albumE}}</td>
+		  <td>{{song.albumF}}</td>
+	  </tr>
+{% endfor %}
+	</table>
+	<br />
+	<a href="/song/add">Nueva Cancion</a>
+ <a href="/admin">Terminar</a>
+  </body>
+</html>

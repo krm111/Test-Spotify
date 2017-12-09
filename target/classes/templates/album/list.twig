@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Albumes</title>
+  </head>
+  <body>
+
+ {% if (message) %}
+ <div style="color: green; border: 1px solid green; margin-bottom:10px;">{{message}}</div>
+ {% endif %}
+
+	<table border="1">
+	  <tr>
+	    <th>ID</th>
+	    <th>Name</th>
+		  <th>Artist</th>
+		  <th>ft.</th>
+		  <th>ft.</th>
+		  <th>ft.</th>
+		  <th>ft.</th>
+		  <th>ft.</th>
+		  <th>ft.</th>
+	  </tr>
+
+{% for album in albums %}
+	  <tr>
+	    <td>{{album.id}}</td>
+	    <td>{{album.name}}</td>
+		  <td>{{album.artist}}</td>
+		  <td>{{album.artistA}}</td>
+		  <td>{{album.artistB}}</td>
+		  <td>{{album.artistC}}</td>
+		  <td>{{album.artistD}}</td>
+		  <td>{{album.artistE}}</td>
+		  <td>{{album.artistF}}</td>
+	  </tr>
+{% endfor %}
+	</table>
+	<br />
+	<a href="/album/add">Nuevo Album</a>
+ <a href="/admin">Terminar</a>
+  </body>
+</html>

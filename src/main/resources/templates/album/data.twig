@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Album: </title>
+  </head>
+  <body>
+   <form action="save" method="POST">
+	<table border="1">
+	  <tr>
+	    <th>ID:</th>
+
+ {% if (album.id) %}
+	    <td><input name="id" value="{{album.id}}" type="hidden" />{{album.id}}</td>
+ {% else %}
+	    <td><input name="id" /></td>
+ {% endif %}
+
+	  </tr>
+		<tr>
+			<th>Name:</th>
+			<td><input name="name" value="{{album.name}}" /></td>
+		</tr>
+		<tr>
+			<th>Artist:</th>
+			<td><input name="artist" value="{{album.artist}}" /></td>
+		</tr>
+		<tr>
+			<th>Artist (Collaborator):</th>
+			<td><input name="artistA" value="{{album.artistA}}" /></td>
+		</tr>
+		<tr>
+			<th>Artist (Collaborator):</th>
+			<td><input name="artistB" value="{{album.artistB}}" /></td>
+		</tr>
+		<tr>
+			<th>Artist (Collaborator):</th>
+			<td><input name="artistC" value="{{album.artistC}}" /></td>
+		</tr>
+		<tr>
+			<th>Artist (Collaborator):</th>
+			<td><input name="artistD" value="{{album.artistD}}" /></td>
+		</tr>
+		<tr>
+			<th>Artist (Collaborator):</th>
+			<td><input name="artistE" value="{{album.artistE}}" /></td>
+		</tr>
+		<tr>
+			<th>Artist (Collaborator):</th>
+			<td><input name="artistF" value="{{album.artistF}}" /></td>
+		</tr>
+	</table>
+    <br>
+	<input type="submit" value="OK" />
+	<input type="button" value="Cancel" onclick="history.back();" />
+   </form>
+  </body>
+</html>

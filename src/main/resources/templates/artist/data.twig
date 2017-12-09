@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Artista: </title>
+  </head>
+  <body>
+   <form action="save" method="POST">
+	<table border="1">
+	  <tr>
+	    <th>ID:</th>
+
+ {% if (artist.id) %}
+	    <td><input name="id" value="{{artist.id}}" type="hidden" />{{artist.id}}</td>
+ {% else %}
+	    <td><input name="id" /></td>
+ {% endif %}
+
+	  </tr>
+		<tr>
+			<th>Name:</th>
+			<td><input name="name" value="{{artist.name}}" /></td>
+		</tr>
+	</table>
+    <br>
+	<input type="submit" value="OK" />
+	<input type="button" value="Cancel" onclick="history.back();" />
+   </form>
+  </body>
+</html>

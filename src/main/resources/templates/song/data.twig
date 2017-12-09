@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cancion: </title>
+  </head>
+  <body>
+   <form action="save" method="POST">
+	<table border="1">
+	  <tr>
+	    <th>ID:</th>
+
+ {% if (song.dir) %}
+	    <td><input name="dir" value="{{song.dir}}" type="hidden" />{{song.dir}}</td>
+ {% else %}
+	    <td><input name="dir" /></td>
+ {% endif %}
+
+	  </tr>
+		<tr>
+			<th>Name:</th>
+			<td><input name="sname" value="{{song.sname}}" /></td>
+		</tr>
+		<tr>
+			<th>Album:</th>
+			<td><input name="album" value="{{song.album}}" /></td>
+		</tr>
+		<tr>
+			<th>Other Album:</th>
+			<td><input name="otherA" value="{{song.albumA}}" /></td>
+		</tr>
+		<tr>
+			<th>Other Album:</th>
+			<td><input name="otherB" value="{{song.albumB}}" /></td>
+		</tr>
+		<tr>
+			<th>Other Album:</th>
+			<td><input name="otherC" value="{{song.albumC}}" /></td>
+		</tr>
+		<tr>
+			<th>Other Album:</th>
+			<td><input name="otherD" value="{{song.albumD}}" /></td>
+		</tr>
+		<tr>
+			<th>Other Album:</th>
+			<td><input name="otherE" value="{{song.albumE}}" /></td>
+		</tr>
+		<tr>
+			<th>Other Album:</th>
+			<td><input name="otherF" value="{{song.albumF}}" /></td>
+		</tr>
+	</table>
+    <br>
+	<input type="submit" value="OK" />
+	<input type="button" value="Cancel" onclick="history.back();" />
+   </form>
+  </body>
+</html>
