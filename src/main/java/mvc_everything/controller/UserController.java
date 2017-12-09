@@ -1,6 +1,9 @@
 package mvc_everything.controller;
 
 //import java.util.List;
+import java.io.*;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,8 +26,35 @@ public class UserController {
 
   @RequestMapping
   public String Home(ModelMap model, @RequestParam(value = "message", required = false) String message) {
-    model.addAttribute("message", message);
-    return "user/home";
+  
+    String text = null;
+	File file = new File("currentuser.txt");
+	BufferedReader reader = null;
+	
+	try {
+    	reader = new BufferedReader(new FileReader(file));
+		text = reader.readLine();
+	} catch (FileNotFoundException e) {
+    e.printStackTrace();
+	} catch (IOException e) {
+	    e.printStackTrace();
+	} 
+	finally {
+    try {
+        if (reader != null) {
+            reader.close();
+        }
+    } catch (IOException e) {
+    }
+	}
+	if(text==null){
+		model.addAttribute("message", message);
+	    return "user/home";
+	}
+	else{
+		return "user/session";
+	}  
+
   }
 
   @RequestMapping("/login")
@@ -34,10 +64,40 @@ public class UserController {
     model.addAttribute("title", "Login");
     return "user/sign";
   }
+  @RequestMapping("/logout")
+  public String loginOut(ModelMap model) {
+		Writer writer = null;
 
+    	try {
+    	    writer = new BufferedWriter(new OutputStreamWriter(
+    	          new FileOutputStream("currentuser.txt"), "utf-8"));
+    	    writer.write("");
+    	} catch (IOException ex) {
+    	  // report
+    	} finally {
+    	   try {writer.close();} catch (Exception ex) {/*ignore*/}
+    	}
+    return "redirect:/user?message=Logged out";
+  }
   @RequestMapping(value = "/signIn", method = RequestMethod.POST)
   public String signInUser(@ModelAttribute User userSession, ModelMap model) {
     if(userService.validate(userSession) == true) {
+    	
+
+
+    	
+    	Writer writer = null;
+
+    	try {
+    	    writer = new BufferedWriter(new OutputStreamWriter(
+    	          new FileOutputStream("currentuser.txt"), "utf-8"));
+    	    writer.write(userSession.getUsername());
+    	} catch (IOException ex) {
+    	  // report
+    	} finally {
+    	   try {writer.close();} catch (Exception ex) {/*ignore*/}
+    	}
+      
       return "user/session";
     }
     else {
